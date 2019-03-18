@@ -11,3 +11,8 @@ data1$model<-paste(paste(19,data1$model_year),strrep(0,8-str_length(data1$model_
 data1$model_ajustado<-gsub(" ","",data1$model)
 data1$indicador<- gregexpr(7,data1$model_ajustado)
 data1$indicador[data1$indicador=='0']<-NA
+data1$indicador2<-0
+for (i in 1: nrow(data1)){
+data1$indicador2[i]<-ifelse(data1$indicador[i]=='3',1,data1$indicador[i])
+}
+
